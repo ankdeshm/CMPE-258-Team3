@@ -10,4 +10,4 @@ Steps to run the entire pipeline for Seq2SQl and SQLNet are available in the not
 # References
 [1] X. Xu, “xiaojunxu/sqlnet: Neural network for generating structured queries from natural language.,” GitHub, https://github.com/xiaojunxu/SQLNet (accessed Dec. 11, 2023). 
 
-## Contributor: Ankita Arvind Deshmukh
+### Contributor: Ankita Arvind Deshmukh
