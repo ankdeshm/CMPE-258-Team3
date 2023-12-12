@@ -10,7 +10,7 @@ from get_selfconsistent_output import get_sqls
 from tqdm import tqdm
 
 # add your openai api key
-openai.api_key = "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"
+openai.api_key = "sk-"
 
 chat_prompt = [
     {
