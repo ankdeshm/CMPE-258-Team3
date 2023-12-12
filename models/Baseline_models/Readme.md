@@ -1,5 +1,3 @@
-# Contributor: Ankita Arvind Deshmukh
-
 # Seq2SQL
 Seq2SQL is a deep neural network model to obtain SQL queries from corresponding natural language queries. This is done using Reinforcement Learning. This is the baseline model for the task of Text-to-SQL. It uses rewards from in-the-loop query execution on top of the database to further learn a policy to generate the query. It leverages the structure of SQL to prune the space of generated queries which simplifies the problem of generation. It takes questions and columns of the table as input. It generates the SQL query which during training is performed against the database. The result obtained from execution is the reward to train the reinforcement learning algorithm. The model utilizes the attentional sequence to sequence neural semantic parser and further we have the classifier to predict the aggregation operation of the query. Then, there is the augmented pointer network to generate the query conditions token-by-token from an input sequence, and lastly, the policy-based reinforcement learning algorithm to handle the generation of unordered query conditions. The original code to reproduce the results for Seq2SQL is taken from [1] and it is modified to resolve dependency errors.
 
@@ -11,3 +9,5 @@ Steps to run the entire pipeline for Seq2SQl and SQLNet are available in the not
 
 # References
 [1] X. Xu, “xiaojunxu/sqlnet: Neural network for generating structured queries from natural language.,” GitHub, https://github.com/xiaojunxu/SQLNet (accessed Dec. 11, 2023). 
+
+## Contributor: Ankita Arvind Deshmukh
