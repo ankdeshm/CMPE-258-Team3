@@ -15,12 +15,18 @@ The paper "DIN-SQL: Decomposed In-Context Learning of Text-to-SQL with Self-Corr
 # Steps to run the DIN-SQL model:
 1. Download the Spider Dataset from here: https://drive.google.com/u/0/uc?id=1iRDVHLr4mX2wQKSgA9J8Pire73Jahh0m&export=download and place it in /data/.
 2. Copy dev.json and tables.json into /data/ as well.
-3. Environment set up:
+3. Add your OPENAI API key in DIN-SQL.py
+4. Environment set up:
 
-python -m venv din_env
-source ./din_env/bin/activate
-pip install -r requirements.txt
-python DIN-SQL.py --dataset ./data/ --output predicted_sql.txt
+  ```python -m venv din_env```
+  
+  ```source ./din_env/bin/activate```
+
+  ```pip install -r requirements.txt```
+
+5. Run DIN-SQL.py
+
+  ```python DIN-SQL.py --dataset ./data/ --output predicted_sql.txt```
 
 
 # References
