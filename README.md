@@ -13,8 +13,10 @@ Various datasets are used for training/finetuning/inference. These datasets can 
 
 ## Models
 We experimented with the following models for out text-to-sql conversion project. Seq2SQl and SQLNet served as our baselines. All the models mentioned below use one of the datasets metioned above for the training purpose. The steps to run these models and the current implementation of these approaches can be found at their respective folders inside /models in this repo. <br>
-- Seq2SQL
-- SQLNet
+
+- Baseline Models
+  - Seq2SQL
+  - SQLNet
 - C3-SQL
 - DIN-SQL
 - DAIL-SQL
