@@ -31,36 +31,9 @@ We experimented with the following models for out text-to-sql conversion project
 
 ## Results
 
-The following tables compares the execution accuracy and the exact match for 3 different models which are currently among the state-of-the art methods in the area of text-to-sql conversion.
+The following tables compares the execution accuracy and the exact match for 3 different models which are currently among the state-of-the art methods in the area of text-to-sql conversion. <br>
 
-
-| Model   |               Execution Accuracy                    |               Exact Match Accuracy                  |
-|---------|--------------------------|--------------------------|--------------------------|--------------------------|
-|         | Without plugging values  | With plugging Values     | Without plugging values  | With plugging Values     |
-|---------|--------------------------|--------------------------|--------------------------|--------------------------|
-| C3-SQL  | 89.0%                    | 90.0%                    | 40.0%                    | 40.0%                    |
-|---------|--------------------------|--------------------------|--------------------------|--------------------------|
-| DIN-SQL | 93.7%                    | 95.2%                    | 63.5%                    | 63.5%                    |
-|---------|--------------------------|--------------------------|--------------------------|--------------------------|
-| DAIL-SQL| 76.6%                    | 82.6%                    | 58.7%                    | 58.7%                    |
-
-
-
-| Model   | Execution Accuracy       | Exact Match Accuracy     |
-|---------|--------------------------|--------------------------|
-|         | Without plugging values  | Without plugging values  |
-|         | With plugging Values     | With plugging Values     |
-|---------|--------------------------|--------------------------|
-| C3-SQL  | 89.0%                    | 40.0%                    |
-| C3-SQL  | 90.0%                    | 40.0%                    |
-|---------|--------------------------|--------------------------|
-| DIN-SQL | 93.7%                    | 63.5%                    |
-| DIN-SQL | 95.2%                    | 63.5%                    |
-|---------|--------------------------|--------------------------|
-| DAIL-SQL| 76.6%                    | 58.7%                    |
-| DAIL-SQL| 82.6%                    | 58.7%                    |
-
-| Model    | Execution Accuracy w/o plugging | Execution Accuracy w/ plugging | Exact Match Accuracy w/o plugging | Exact Match Accuracy w/ plugging |
+| Model    | Execution Accuracy w/o plugging| Execution Accuracy w/ plugging | Exact Match Accuracy w/o plugging | Exact Match Accuracy w/ plugging |
 |----------|--------------------------------|--------------------------------|-----------------------------------|----------------------------------|
 | C3-SQL   | 89.0%                          | 90.0%                          | 40.0%                             | 40.0%                            |
 | DIN-SQL  | 93.7%                          | 95.2%                          | 63.5%                             | 63.5%                            |
