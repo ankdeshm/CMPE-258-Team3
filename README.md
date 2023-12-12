@@ -40,7 +40,14 @@ The following tables compares the execution accuracy and the exact match for 3 d
 | DAIL-SQL | 76.6%                          | 82.6%                          | 58.7%                             | 58.7%                            |
 
 
+### Execution Accuracy by Model with Plugging
 ![WhatsApp Image 2023-12-11 at 9 53 01 PM (1)](https://github.com/ankdeshm/CMPE-258-Team3/assets/101481678/75bda12e-f223-47a3-a05a-cc0318fad060)
+
+### Execution Accuracy by Model without Plugging
+![WhatsApp Image 2023-12-11 at 9 53 01 PM](https://github.com/ankdeshm/CMPE-258-Team3/assets/101481678/dfc97ac4-1902-4d24-b2cf-74837083b5c7)
+
+
+
 
 
 
