@@ -8,6 +8,7 @@ C3-SQL model is a ChatGPT-based zero-shot Text-to-SQL method. It is tested on th
 - Other steps to run this model are given in C3_SQL.ipynb file.
 - For more information on C3-SQL implementation, refer to [1].
 
+#### When I ran this code, I reduced the number of samples to 100 because of the OpenAI API issue. This was done in "dev.json" file which will be received from downloading Spider dataset. 
 
 # Reference
 [1] bigbigwatermalon, “C3SQL,” GitHub repository, [Online]. Available: https://github.com/bigbigwatermalon/C3SQL/tree/master. [Accessed: Dec 12, 2023].
