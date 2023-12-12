@@ -6,7 +6,7 @@ from tqdm import tqdm
 from collections import Counter
 
 # add your openai api key
-openai.api_key = "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"
+openai.api_key = "sk-"
 
 
 def parse_option():
