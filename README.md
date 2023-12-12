@@ -41,8 +41,8 @@ The following tables compares the execution accuracy and the exact match for 3 d
 
 
 <p align="center">
-  <img src="https://github.com/ankdeshm/CMPE-258-Team3/assets/101481678/75bda12e-f223-47a3-a05a-cc0318fad060" alt="First Image" width="600" style="margin-right: 20px;"/>
-  <img src="https://github.com/ankdeshm/CMPE-258-Team3/assets/101481678/dfc97ac4-1902-4d24-b2cf-74837083b5c7" alt="Second Image" width="600"/>
+  <img src="https://github.com/ankdeshm/CMPE-258-Team3/assets/101481678/75bda12e-f223-47a3-a05a-cc0318fad060" alt="First Image" width="500" style="margin-right: 10px;"/>
+  <img src="https://github.com/ankdeshm/CMPE-258-Team3/assets/101481678/dfc97ac4-1902-4d24-b2cf-74837083b5c7" alt="Second Image" width="500"/>
 </p>
 
 
