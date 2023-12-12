@@ -1,0 +1,15 @@
+How many singers do we have?
+What is the total number of singers?
+Show name, country, and age for all singers ordered by age from the oldest to the youngest.
+What are the names, countries, and ages of every singer in descending order of age? 
+What is the average, minimum, and maximum age of all singers from France? 
+What is the average, minimum, and maximum age for all French singers? 
+Show the name and the release year of the song by the youngest singer
+What are the names and release years for all the songs of the youngest singer?  
+What are all the distinct countries where singers above the age of 20 are from? 
+What are the different countries with singers above the age 20?
+
+
+
+
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-To-SQL</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+        .title-container {
+            text-align: center;
+            padding: 20px;
+        }
+        .title {
+            display: inline-block;
+            font-size: 30px;
+            color: #333;
+            margin: 0; /* Title margin set to 0 */
+        }
+        .container {
+            width: calc(100% - 80px); /* Margin of 40px on each side, adjust as needed */
+            max-width: 700px;
+            margin: 20px auto; /* This centers the container with automatic margins */
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .box {
+            background: #fff;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,1);
+            margin-bottom: 20px; /* Margin between boxes when wrapped */
+        }
+        .left-panel, .right-panel {
+            flex: 1; /* Allows boxes to grow and fill the container space */
+            min-width: 100px; /* Minimum width before they wrap */
+            margin: 10px; /* Spacing between the boxes */
+        }
+        input[type="text"], select, textarea, button {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            height: 40px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 40px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .model-info {
+            font-size: 16px;
+            color: #333;
+            margin: 5px 0; /* Adjust margin as needed */
+            background-color: #f2f2f2; /* Light grey background */
+            border-radius: 8px; /* Rounded corners */
+            padding: 20px; /* Padding inside the box */
+            margin-bottom: 20px; /* Space above the stats box */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+            line-height: 1.6; /* Line height for better readability */
+        }
+        .output-group label, .output-group textarea {
+            display: block; /* Makes the label and textarea start on a new line */
+            width: 90%; /* Adjusts the width to match other inputs */
+            margin: 10px auto; /* Centers the elements and provides spacing */
+            margin-bottom: 20px; /* Space above the stats box */
+        }
+
+        
+        .input-group select,  .input-group textarea,.input-group text, .input-group label{
+            display: block; /* Makes the element a block-level element */
+            width: 90%; /* Adjusts the width */
+            margin: 10px auto; /* Centers the element horizontally */
+            margin-bottom: 20px; /* Space above the stats box */
+        }
+
+        .input-group2 select, .input-group2 button, .input-group2 textarea,.input-group2 text, .input-group2 label,.input-group button{
+            display: block; /* Makes the element a block-level element */
+            width: 30%; /* Adjusts the width */
+            margin: 10px auto; /* Centers the element horizontally */
+            margin-bottom: 20px; /* Space above the stats box */
+        }
+        .pre-generated-model-info p{
+            font-size: 10pt;
+            text-align: center;
+        }
+      
+
+    
+
+        /* Add additional styles as needed */
+    </style>
+</head>
+<body>
+    <div class="title-container">
+        <h1 class="title">Text-To-SQL</h1>
+    </div>
+    <div class="container">
+        <form action="/" method="post" class="left-panel box">
+            <div class="input-group">
+                <label for="text">Natural Language Query</label>
+                <textarea id="text" name="text" placeholder="Enter your English question here">{{ user_input or '' }}</textarea>
+            </div>
+            <div class="input-group2">
+                <label for="text">Dataset: </label>
+                <select id="database" name="database" onchange="this.form.submit()">
+                    {% for database in database_options %}
+                        <option value="{{ database }}" {% if database == selected_database %}selected{% endif %}>{{ database }}</option>
+                    {% endfor %}
+                </select>
+                <label for="text">Model: </label>
+                <select id="model" name="model">
+                    {% for model in models_to_display %}
+                        <option value="{{ model }}">{{ model }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="input-group">
+                <button type="submit">Generate!</button>
+            </div>
+        
+ 
+            <div class="output-group">
+                <label for="model-output">SQL Query</label>
+                <textarea id="model-output" name="model_output" readonly placeholder="Generated SQL will appear here...">{{ model_output or '' }}</textarea>
+
+            </div>
+
+            {% if model_detail.name in ['C3-SQL', 'DAIL-SQL'] %}
+                <div class="pre-generated-model-info">
+                    <p>Note: This is a pregenerated model output using GPT 3.5 Turbo</p>
+                </div>
+            {% endif %}
+
+            {% if model_detail.name in ['DIN-SQL'] %}
+                <div class="pre-generated-model-info">
+                    <p>Note: This is a pregenerated model output using GPT 4</p>
+                </div>
+            {% endif %}
+        
+        </form>
+        <!-- <div class="right-panel box">
+            <div class="model-stats">
+                <strong>Model Name:</strong>
+                <p class="model-info">{{ model_detail.name }}</p>
+                <strong>Model Accuracy:</strong>
+                <p class="model-info">{{ model_detail.accuracy }}</p>
+                <strong>Model Architecture:</strong>
+                <p class="model-info">{{ model_detail.architecture }}</p>
+
+
+                {% if model_detail.name in ['C3-SQL', 'DAIL-SQL'] %}
+                    <div class="pre-generated-model-info">
+                        <p>This is a pregenerated model output using GPT 3.5 Turbo</p>
+                    </div>
+                {% endif %}
+
+                {% if model_detail.name in ['DIN-SQL'] %}
+                    <div class="pre-generated-model-info">
+                        <p>This is a pregenerated model output using GPT 4</p>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div> -->
+    </div>
+    <script>
+        // You can add JavaScript here for additional interactivity or dynamic behavior
+    </script>
+</body>
+</html>
