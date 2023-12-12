@@ -11,7 +11,9 @@
   ```source ./ui_env/bin/activate```
 
   ```pip install flask```
+  
   ```pip install transformer```
+  
   ```pip install sentencepiece```
 
 
