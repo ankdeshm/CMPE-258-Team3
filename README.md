@@ -33,7 +33,7 @@ We experimented with the following models for out text-to-sql conversion project
 
 The following tables compares the execution accuracy and the exact match for 3 different models which are currently among the state-of-the art methods in the area of text-to-sql conversion.
 
-|---------|--------------------------|--------------------------|--------------------------|--------------------------|
+
 | Model   |               Execution Accuracy                    |               Exact Match Accuracy                  |
 |---------|--------------------------|--------------------------|--------------------------|--------------------------|
 |         | Without plugging values  | With plugging Values     | Without plugging values  | With plugging Values     |
@@ -43,7 +43,8 @@ The following tables compares the execution accuracy and the exact match for 3 d
 | DIN-SQL | 93.7%                    | 95.2%                    | 63.5%                    | 63.5%                    |
 |---------|--------------------------|--------------------------|--------------------------|--------------------------|
 | DAIL-SQL| 76.6%                    | 82.6%                    | 58.7%                    | 58.7%                    |
-|---------|--------------------------|--------------------------|--------------------------|--------------------------|
+
+
 
 | Model   | Execution Accuracy       | Exact Match Accuracy     |
 |---------|--------------------------|--------------------------|
