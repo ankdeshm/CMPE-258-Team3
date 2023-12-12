@@ -1,3 +1,5 @@
+# Contributor: Ankita Arvind Deshmukh
+
 # Seq2SQL
 Seq2SQL is a deep neural network model to obtain SQL queries from corresponding natural language queries. This is done using Reinforcement Learning. This is the baseline model for the task of Text-to-SQL. It uses rewards from in-the-loop query execution on top of the database to further learn a policy to generate the query. It leverages the structure of SQL to prune the space of generated queries which simplifies the problem of generation. It takes questions and columns of the table as input. It generates the SQL query which during training is performed against the database. The result obtained from execution is the reward to train the reinforcement learning algorithm. The model utilizes the attentional sequence to sequence neural semantic parser and further we have the classifier to predict the aggregation operation of the query. Then, there is the augmented pointer network to generate the query conditions token-by-token from an input sequence, and lastly, the policy-based reinforcement learning algorithm to handle the generation of unordered query conditions. The original code to reproduce the results for Seq2SQL is taken from [1] and it is modified to resolve dependency errors.
 
@@ -5,7 +7,7 @@ Seq2SQL is a deep neural network model to obtain SQL queries from corresponding 
 SQLNet solves the problem of Text-to-SQL by avoiding the sequence-to-sequence structure and uses a sketch-based approach so that the prediction can be done by only taking the previous considerations into account. This is an extension of the Seq2SQL model without reinforcement learning as they found that improvement from the reinforcement learning model is limited and avoids the “order matters” problem. It uses a novel attention structure called column attention to boost performance. This model employs the sketch-based approach which aligns with the SQL grammar. It just needs to fill in the slots in the sketch rather than predicting the output grammar and the content. Then, it employs the sequence-to-set model to generate SQL queries where order doesn't matter. Further, there is a column attention mechanism which boosts the model’s performance. And lastly, it eliminates the need for reinforcement learning and improves performance by ~4%. The original code to reproduce the results for SQLNet is taken from [1] and it is modified to resolve dependency errors.
 
 # Steps to Run
-Steps to run the entire pipeline for Seq2SQl and SQLNet are available in the notebook.
+Steps to run the entire pipeline for Seq2SQl and SQLNet are available in the notebook Seq2SQL_SQLNet.ipynb.
 
 # References
 [1] X. Xu, “xiaojunxu/sqlnet: Neural network for generating structured queries from natural language.,” GitHub, https://github.com/xiaojunxu/SQLNet (accessed Dec. 11, 2023). 
