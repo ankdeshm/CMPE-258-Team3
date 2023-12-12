@@ -31,7 +31,15 @@ We experimented with the following models for out text-to-sql conversion project
 
 ## Results
 
-The following tables compares the execution accuracy and the exact match for 3 different models which are currently among the state-of-the art methods in the area of text-to-sql conversion. <br>
+This project's user interface (UI) is a Flask web application that converts natural language queries to SQL utilizing a variety of models. Users can enter their query, select from a variety of databases and models, and get the matching SQL conversion.
+
+<img width="448" alt="UI" src="https://github.com/ankdeshm/CMPE-258-Team3/assets/101481678/803ca61e-054f-4d40-90fe-55ce191a220b">
+
+
+
+## Comparison
+
+The following table compares the execution accuracy and the exact match for 3 different models which are currently among the state-of-the art methods in the area of text-to-sql conversion. <br>
 
 | Model    | Execution Accuracy w/o plugging| Execution Accuracy w/ plugging | Exact Match Accuracy w/o plugging | Exact Match Accuracy w/ plugging |
 |----------|--------------------------------|--------------------------------|-----------------------------------|----------------------------------|
@@ -47,9 +55,6 @@ The following tables compares the execution accuracy and the exact match for 3 d
 
 
 
-
-
-## Comparison
 
 ## Conclusion
 
