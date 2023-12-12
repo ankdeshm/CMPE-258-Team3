@@ -12,5 +12,25 @@ Various datasets are used for training/finetuning/inference. These datasets can 
 - sql-create-context: Available at https://huggingface.co/datasets/b-mc2/sql-create-context
 
 ## Models
+We experimented with the following models for out text-to-sql conversion project. Seq2SQl and SQLNet served as our baselines. All the models mentioned below use one of the datasets metioned above for the training purpose. The steps to run these models and the current implementation of these approaches can be found at their respective folders inside /models in this repo. <br>
+- Seq2SQL
+- SQLNet
+- C3-SQL
+- DIN-SQL
+- DAIL-SQL
+- Transformer-based models from Hugging face
+  - gpt2Medium_text_to_sql
+  - t5-small-awesome-text-to-sql
+  - Mistral-7B-SQL
+  - CodeLlama-7b-Instruct-SQL
+  - CodeLlama-13b-Instruct-SQL
+  - squeal
+  - T5-LM-Large-text2sql-spider
+
+## Results
+
+## Comparison
+
+## Conclusion
 
 
