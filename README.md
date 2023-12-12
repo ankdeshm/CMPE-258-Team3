@@ -60,6 +60,13 @@ The following tables compares the execution accuracy and the exact match for 3 d
 | DAIL-SQL| 76.6%                    | 58.7%                    |
 | DAIL-SQL| 82.6%                    | 58.7%                    |
 
+| Model    | Execution Accuracy w/o plugging | Execution Accuracy w/ plugging | Exact Match Accuracy w/o plugging | Exact Match Accuracy w/ plugging |
+|----------|--------------------------------|--------------------------------|-----------------------------------|----------------------------------|
+| C3-SQL   | 89.0%                          | 90.0%                          | 40.0%                             | 40.0%                            |
+| DIN-SQL  | 93.7%                          | 95.2%                          | 63.5%                             | 63.5%                            |
+| DAIL-SQL | 76.6%                          | 82.6%                          | 58.7%                             | 58.7%                            |
+
+
 
 
 ## Comparison
