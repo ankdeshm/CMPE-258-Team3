@@ -33,7 +33,17 @@ The generative LLM models trained on the Spider dataset are evaluated using the 
 
 
 # Steps to run eval:
-1. Run evluation.py
+1. Run evaluation.py
+``` python evaluation.py --gold gold.txt --pred [predicted_file] --etype all --db [path to spider database] --table tables.json  --progress_bar_for_each_datapoint ```
+
+For example:
+To run the DAIL evaluation, use: 
+
+```python evaluation.py --gold gold.txt --pred dail_predicted.txt --etype all --db [path to spider database] --table tables.json  --progress_bar_for_each_datapoint```
+
+To provide value strings, use --plug_value 
+
+```python evaluation.py --gold gold.txt --pred dail_predicted.txt --etype all --db [path to spider database] --table tables.json  --progress_bar_for_each_datapoint --plug_value```
 
 
 # References
