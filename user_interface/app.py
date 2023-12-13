@@ -155,16 +155,15 @@ def index():
         'Sql-create-context': ['gpt2Medium_text_to_sql', 't5-small', 'toy-sql-28M']
     }
     model_details = {
-    'C3-SQL': {'name': 'C3-SQL', 'architecture': 'C3 Model Architecture', 'accuracy': '92%'},
-    'DIN-SQL': {'name': 'DIN-SQL', 'architecture': 'DIN SQL Architecture', 'accuracy': '85%'},
-    'DAIL-SQL': {'name': 'DAIL-SQL', 'architecture': 'DAIL SQL Architecture', 'accuracy': '87%'},
-    'T5-LM-Large-text2sql-spider': {'name': 'T5-LM-Large-text2sql-spider', 'architecture': 'T5 Large Model', 'accuracy': '90%'},
-    'gpt2Medium_text_to_sql': {'name': 'gpt2Medium_text_to_sql', 'architecture': 'GPT-2 Medium', 'accuracy': '88%'},
-    't5-small': {'name': 't5-small', 'architecture': 'T5 Small', 'accuracy': '84%'},
-    'toy-sql-28M': {'name': 'toy-sql-28M', 'architecture': 'Toy SQL 28M', 'accuracy': '80%'},
+    'C3-SQL': {'name': 'C3-SQL', 'architecture': 'C3 Model Architecture', 'accuracy': '80%'},
+    'DIN-SQL': {'name': 'DIN-SQL', 'architecture': 'DIN SQL Architecture', 'accuracy': '93%'},
+    'DAIL-SQL': {'name': 'DAIL-SQL', 'architecture': 'DAIL SQL Architecture', 'accuracy': '76%'},
+    'T5-LM-Large-text2sql-spider': {'name': 'T5-LM-Large-text2sql-spider', 'architecture': 'T5 Large Model', 'accuracy': '60%'},
+    'gpt2Medium_text_to_sql': {'name': 'gpt2Medium_text_to_sql', 'architecture': 'GPT-2 Medium', 'accuracy': '67%'},
+    't5-small': {'name': 't5-small', 'architecture': 'T5 Small', 'accuracy': '40%'},
+    'toy-sql-28M': {'name': 'toy-sql-28M', 'architecture': 'Toy SQL 28M', 'accuracy': '20%'},
     # Add other models as needed
 }
-
 
     
     selected_database = request.form.get('database') if request.method == 'POST' else 'Spider'
@@ -178,20 +177,22 @@ def index():
         user_input = request.form['text']
         selected_model = request.form.get('model')
         # Only run the model if the selected one is 'gpt2Medium_text_to_sql'
-        if selected_model == 'toy-sql-28M':
-            model_output = generate_toy_sql(user_input)
-        if selected_model == 'gpt2Medium_text_to_sql':
-            model_output = generate_gpt2Medium_text_to_sql(user_input)
-        if selected_model == 't5-small':
-            model_output = generate_t5_small(user_input)
-        if selected_model == 'T5-LM-Large-text2sql-spider':
-            model_output = generate_T5_LM_spider(user_input)
-        if selected_model == 'C3-SQL':
-            model_output = generate_c3(user_input)
-        if selected_model == 'DIN-SQL':
-            model_output = generate_DIN_SQL(user_input)
-        if selected_model == 'DAIL-SQL':
-            model_output = generate_DAIL_SQL(user_input)
+
+        if 'generate_button' in request.form:
+            if selected_model == 'toy-sql-28M':
+                model_output = generate_toy_sql(user_input)
+            if selected_model == 'gpt2Medium_text_to_sql':
+                model_output = generate_gpt2Medium_text_to_sql(user_input)
+            if selected_model == 't5-small':
+                model_output = generate_t5_small(user_input)
+            if selected_model == 'T5-LM-Large-text2sql-spider':
+                model_output = generate_T5_LM_spider(user_input)
+            if selected_model == 'C3-SQL':
+                model_output = generate_c3(user_input)
+            if selected_model == 'DIN-SQL':
+                model_output = generate_DIN_SQL(user_input)
+            if selected_model == 'DAIL-SQL':
+                model_output = generate_DAIL_SQL(user_input)
     
     model_detail = model_details.get(selected_model, {'architecture': 'N/A', 'accuracy': 'N/A'})
     return render_template('index.html',
@@ -200,7 +201,8 @@ def index():
                            models_to_display=models_to_display,
                            user_input=user_input,
                            model_output=model_output,
-                           model_detail=model_detail)
+                          model_detail=model_detail
+                           )
 
 
 

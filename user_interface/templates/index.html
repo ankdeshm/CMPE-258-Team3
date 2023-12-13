@@ -97,6 +97,17 @@
             font-size: 10pt;
             text-align: center;
         }
+        .pre-generated-model-info2 p{
+            margin-left: 30px;
+            font-size: 12pt;
+            text-align: left;
+            margin-top: 10px;
+            margin-bottom: 22px;
+        }
+        .model-name {
+            font-size: 13pt;
+            font-weight: bold;
+        }
       
 
     
@@ -129,7 +140,9 @@
                 </select>
             </div>
             <div class="input-group">
-                <button type="submit">Generate!</button>
+                <button type="submit" name="generate_button" >Generate!</button>
+
+               
             </div>
         
  
@@ -138,17 +151,26 @@
                 <textarea id="model-output" name="model_output" readonly placeholder="Generated SQL will appear here...">{{ model_output or '' }}</textarea>
 
             </div>
-
-            {% if model_detail.name in ['C3-SQL', 'DAIL-SQL'] %}
-                <div class="pre-generated-model-info">
-                    <p>Note: This is a pregenerated model output using GPT 3.5 Turbo</p>
+            {% if model_output %}
+                <div class="pre-generated-model-info2">
+                    <p>   Current SQL Query generated using: <span class="model-name">{{model_detail.name}}</span> </p>
                 </div>
             {% endif %}
 
-            {% if model_detail.name in ['DIN-SQL'] %}
-                <div class="pre-generated-model-info">
-                    <p>Note: This is a pregenerated model output using GPT 4</p>
-                </div>
+            {% if model_output %}
+                {% if model_detail.name in ['C3-SQL', 'DAIL-SQL'] %}
+                    <div class="pre-generated-model-info">
+                        <p>Note: This is a pregenerated model output using GPT 3.5 Turbo</p>
+                    </div>
+                {% endif %}
+            {% endif %}
+
+            {% if model_output %}
+                {% if model_detail.name in ['DIN-SQL'] %}
+                    <div class="pre-generated-model-info">
+                        <p>Note: This is a pregenerated model output using GPT 4</p>
+                    </div>
+                {% endif %}
             {% endif %}
         
         </form>
