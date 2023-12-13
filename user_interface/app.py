@@ -43,44 +43,6 @@ def generate_DAIL_SQL(user_input):
     output = find_answer_for_question(user_input, "DAIL_predicted.txt")
     return output
 
-def generate_T5_LM_spider(user_input):
-    model_path = 'gaussalgo/T5-LM-Large-text2sql-spider'
-    model = AutoModelForSeq2SeqLM.from_pretrained(model_path)
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
-
-    # question = "What is the average, minimum, and maximum age for all French musicians?"
-
-    # schema = """
-    #    "stadium" "Stadium_ID" int , "Location" text , "Name" text , "Capacity" int , "Highest" int , "Lowest" int , "Average" int , foreign_key:  primary key: "Stadium_ID" [SEP] "singer" "Singer_ID" int , "Name" text , "Country" text , "Song_Name" text , "Song_release_year" text , "Age" int , "Is_male" bool , foreign_key:  primary key: "Singer_ID" [SEP] "concert" "concert_ID" int , "concert_Name" text , "Theme" text , "Year" text , foreign_key: "Stadium_ID" text from "stadium" "Stadium_ID" , primary key: "concert_ID" [SEP] "singer_in_concert"  foreign_key: "concert_ID" int from "concert" "concert_ID" , "Singer_ID" text from "singer" "Singer_ID" , primary key: "concert_ID" "Singer_ID"
-    # """
-
-    question = user_input
-    schema = """
-        "head" "age" int
-    """
-
-    input_text = " ".join(["Question: ",question, "Schema:", schema])
-
-    model_inputs = tokenizer(input_text, return_tensors="pt")
-
-    # Generate outputs
-    outputs = model.generate(**model_inputs, max_length=512)
-
-    # Check and flatten the outputs if necessary
-    if isinstance(outputs, torch.Tensor):
-        outputs = outputs.tolist()
-
-    if any(isinstance(i, list) for i in outputs):
-        # Flatten the list if it's a list of lists
-        outputs = [item for sublist in outputs for item in sublist]
-
-    # Decode the outputs
-    output_text = tokenizer.decode(outputs, skip_special_tokens=True)
-    output = output_text.replace("-", "SELECT")
-    
-    return output
-
-
 
 def generate_gpt2Medium_text_to_sql(user_input):
     # Load your model and tokenizer
@@ -145,6 +107,36 @@ def generate_toy_sql(user_input):
 
     return text
 
+def generate_T5_LM_spider(user_input):
+    model_path = 'gaussalgo/T5-LM-Large-text2sql-spider'
+    model = AutoModelForSeq2SeqLM.from_pretrained(model_path)
+    tokenizer = AutoTokenizer.from_pretrained(model_path)
+
+    question = user_input
+    schema = """
+        "head" "age" int
+    """
+
+    input_text = " ".join(["Question: ",question, "Schema:", schema])
+
+    model_inputs = tokenizer(input_text, return_tensors="pt")
+
+    # Generate outputs
+    outputs = model.generate(**model_inputs, max_length=512)
+
+    # Check and flatten the outputs if necessary
+    if isinstance(outputs, torch.Tensor):
+        outputs = outputs.tolist()
+
+    if any(isinstance(i, list) for i in outputs):
+        # Flatten the list if it's a list of lists
+        outputs = [item for sublist in outputs for item in sublist]
+
+    # Decode the outputs
+    output_text = tokenizer.decode(outputs, skip_special_tokens=True)
+    output = output_text.replace("-", "SELECT")
+    
+    return output
 
 
 @app.route('/', methods=['GET', 'POST'])
