@@ -1,4 +1,5 @@
-# CMPE-258-Team3
+# CMPE-258-Team3 
+# Ankita Arvind Deshmukh, Priyanka Birju Shah and Sanika Vijaykumar Karwa
 # Text to SQL Conversion
 
 ## Application Area: Natural Language Processing
@@ -57,5 +58,6 @@ The following table compares the execution accuracy and the exact match for 3 di
 
 
 ## Conclusion
+In this project, we conduct a comparative study of the different models for the task of text-to-SQL conversion. We started with baseline models like Seq2SQL and SQLNET and implemented those. Further, we implemented the top 3 models for the Spider dataset namely C3SQL, DINSQL, and DAILSQL. Additionally, we implemented some hugging-face models for this task which would perform the task of converting the models further. Although there were multiple challenges along the way, we powered through it all and attempted to perform the task of test-to-SQL conversion.  Lastly, we made a User Interface where all the models come together to provide the SQL query generation of the corresponding natural language query. 
 
 
