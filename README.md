@@ -1,5 +1,5 @@
 # CMPE-258-Team3 
-# Ankita Arvind Deshmukh, Priyanka Birju Shah and Sanika Vijaykumar Karwa
+### Ankita Arvind Deshmukh, Priyanka Birju Shah and Sanika Vijaykumar Karwa
 # Text to SQL Conversion
 
 ## Application Area: Natural Language Processing
